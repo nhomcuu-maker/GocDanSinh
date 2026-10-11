@@ -8,3 +8,8 @@ coverage/
 
 # Pending RSS metadata (local only)
 data/source_sync/
+
+sql/.vs/
+*.ssmssln
+*.suo
+sql/Tao_Tai_Khoan_*.sql
