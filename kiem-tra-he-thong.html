@@ -24,14 +24,14 @@
   </style>
 </head>
 <body>
-  <header><a href="/">GÓC DÂN SINH</a> &nbsp; / &nbsp; Kiểm tra hệ thống nội bộ</header>
+  <header><a href="./">GÓC DÂN SINH</a> &nbsp; / &nbsp; Kiểm tra hệ thống nội bộ</header>
   <main>
     <h1>Kiểm tra kết nối và dữ liệu</h1>
     <p class="lead">Trang dành cho nhà phát triển trên máy cá nhân. Các con số dưới đây được lấy trực tiếp từ API của dự án, không phải dữ liệu mẫu của giao diện.</p>
     <section class="box" aria-live="polite">
       <h2>Trạng thái Backend và SQL Server</h2>
       <div class="state" id="health">Đang kiểm tra kết nối...</div>
-      <div class="actions"><button id="reload" type="button">Kiểm tra lại</button><a class="btn secondary" href="/">Quay về trang chủ</a></div>
+      <div class="actions"><button id="reload" type="button">Kiểm tra lại</button><a class="btn secondary" href="./">Quay về trang chủ</a></div>
     </section>
     <section class="stats" aria-label="Số liệu API">
       <div class="stat"><strong id="domains">—</strong><span>Module nghiệp vụ</span></div>
@@ -49,7 +49,7 @@
       <h2>Thao tác tiếp theo: Đối chiếu thủ tục hộ chiếu</h2>
       <p class="warn">Thủ tục hộ chiếu và nguồn chứng cứ mới nạp là dữ liệu <strong>draft / needs_review</strong>. Không tự sửa trạng thái thành <code>published</code> để làm số liệu trang chủ tăng.</p>
       <p>Kiểm tra lần lượt: <strong>3 bước thực hiện · 10 thành phần hồ sơ · 6 trường hợp lệ phí · 7 căn cứ pháp lý · 8 snapshot</strong>. Đây là bước xác nhận dữ liệu SQL đã đi qua Backend chính xác.</p>
-      <div class="actions"><a class="btn" href="/kiem-tra-ban-nhap.html">Mở trang kiểm tra bản nháp hộ chiếu →</a></div>
+      <div class="actions"><a class="btn" href="./kiem-tra-ban-nhap.html">Mở trang kiểm tra bản nháp hộ chiếu →</a></div>
       <p class="hint">Trang bản nháp yêu cầu <code>DEV_PREVIEW_KEY</code> từ file <code>.env</code> của dự án. Khóa không được đưa vào HTML, URL hoặc gửi cho người khác.</p>
     </section>
   </main>
@@ -60,7 +60,7 @@
     const codes = ['LEGAL','ADMIN','SCAM'];
     const names = {LEGAL:'Pháp luật & Quyền lợi', ADMIN:'Thủ tục hành chính', SCAM:'Cảnh báo lừa đảo'};
     async function request(path) {
-      const r=await fetch('/api/'+path, {headers:{Accept:'application/json'},cache:'no-store'});
+      const r=await fetch('./api/'+path, {headers:{Accept:'application/json'},cache:'no-store'});
       if(!r.ok)throw new Error('HTTP '+r.status+' - '+path);
       return r.json();
     }

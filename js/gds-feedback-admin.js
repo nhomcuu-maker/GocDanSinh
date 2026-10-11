@@ -5,7 +5,7 @@
   async function load(){
     const stats=ids('fb-stats'),list=ids('fb-list'),status=ids('fb-status');stats.replaceChildren();list.replaceChildren();
     try{
-      const response=await fetch('/api/admin/feedback',{credentials:'same-origin',cache:'no-store'});
+      const response=await fetch('./api/admin/feedback',{credentials:'same-origin',cache:'no-store'});
       const body=await response.json().catch(()=>({}));
       if(!response.ok)throw Error(response.status===401?'Cần đăng nhập tài khoản nội bộ.':response.status===403?'Tài khoản chưa được cấp quyền.':body.message||'HTTP '+response.status);
       status.textContent='Đã đọc '+(body.items?.length||0)+' phản hồi gần nhất.';
@@ -20,7 +20,7 @@
           const button=create(card,'button','Đánh dấu đã xem xét');button.type='button';
           button.addEventListener('click',async()=>{
             button.disabled=true;
-            try{const res=await fetch('/api/admin/feedback/'+encodeURIComponent(item.id)+'/review',{method:'POST',credentials:'same-origin',headers:{'Content-Type':'application/json'},body:'{}'});
+            try{const res=await fetch('./api/admin/feedback/'+encodeURIComponent(item.id)+'/review',{method:'POST',credentials:'same-origin',headers:{'Content-Type':'application/json'},body:'{}'});
               const data=await res.json().catch(()=>({}));if(!res.ok)throw Error(data.message||'HTTP '+res.status);await load();}
             catch(e){button.disabled=false;status.textContent=e.message||String(e);}
           });

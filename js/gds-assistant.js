@@ -76,7 +76,7 @@
       if(submitting||completed)return;
       submitting=true;yes.disabled=true;no.disabled=true;send.disabled=true;notice.textContent='Đang gửi phản hồi...';
       try{
-        const response=await fetch('/api/assistant/feedback',{method:'POST',credentials:'same-origin',cache:'no-store',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({receipt,vote,reason})});
+        const response=await fetch('./api/assistant/feedback',{method:'POST',credentials:'same-origin',cache:'no-store',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({receipt,vote,reason})});
         const data=await response.json().catch(()=>({}));
         if(!response.ok)throw Error(Array.isArray(data.message)?data.message.join('; '):data.message||'HTTP '+response.status);
         completed=true;notice.textContent=data.message||'Đã tiếp nhận phản hồi.';detail.hidden=true;
