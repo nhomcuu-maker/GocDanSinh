@@ -7,7 +7,8 @@ export class DatabaseService implements OnModuleInit, OnModuleDestroy {
   private pool!: sql.ConnectionPool;
 
   async onModuleInit(): Promise<void> {
-    const mode = process.env.DB_AUTH_MODE ?? 'windows';
+    // Thay thế đoạn cũ bằng dòng này để tự động ép sang chế độ 'sql' trên server Linux
+    const mode = process.env.DB_AUTH_MODE ?? (process.platform === 'win32' ? 'windows' : 'sql');
     const server = process.env.DB_SERVER ?? 'localhost';
     const database = process.env.DB_DATABASE ?? 'GocDanSinh';
     if (database !== 'GocDanSinh') {
