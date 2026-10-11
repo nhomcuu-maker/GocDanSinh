@@ -19,7 +19,7 @@
   const count=el('p','gds-lib-count');count.setAttribute('aria-live','polite');shell.append(count);
   const container=el('div','gds-lib-sections');shell.append(container);
   const foot=el('p','gds-lib-footnote','Văn bản lấy từ nguồn chính thức được phép hiển thị đường dẫn gốc. Điều này không xác nhận văn bản còn hiệu lực hoặc đủ căn cứ tư vấn từng trường hợp.');shell.append(foot);
-  if(area!=='ALL'){const more=el('a','gds-lib-open','Xem thư viện toàn bộ lĩnh vực →');more.href='/thu-vien.html';shell.append(more);}
+  if(area!=='ALL'){const more=el('a','gds-lib-open','Xem thư viện toàn bộ lĩnh vực →');more.href='./thu-vien.html';shell.append(more);}
   root.replaceChildren(shell);
   let items=[], selected='', expanded=new Set();
   const read=async url=>{try{const res=await fetch(url,{cache:'no-store'});return res.ok?await res.json():null;}catch{return null;}};

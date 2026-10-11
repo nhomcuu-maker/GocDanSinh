@@ -127,7 +127,7 @@
       referencePanel.append(all);
     } else show(matches);
     referencePanel.append(list);
-    const a = el('a','gds-lib-all','M\u1edf th\u01b0 vi\u1ec7n \u0111\u1ea7y \u0111\u1ee7 \u2197');a.href='/thu-vien.html';referencePanel.append(a);
+    const a = el('a','gds-lib-all','M\u1edf th\u01b0 vi\u1ec7n \u0111\u1ea7y \u0111\u1ee7 \u2197');a.href='./thu-vien.html';referencePanel.append(a);
   }
 
   function renderRecords(items) {
@@ -294,7 +294,7 @@
       box.append(el('h2','',data.title));
       if (isScam && data.businessCode) {
         const permalink=el('a','gds-document-link','Liên kết trực tiếp tới bài cảnh báo ↗');
-        permalink.href='/canh-bao-lua-dao.html?bai='+encodeURIComponent(data.businessCode);
+        permalink.href='./canh-bao-lua-dao.html?bai='+encodeURIComponent(data.businessCode);
         box.append(permalink);
       }
       if (data.summary && !/^Bản nháp MVP:/i.test(data.summary.trim()))

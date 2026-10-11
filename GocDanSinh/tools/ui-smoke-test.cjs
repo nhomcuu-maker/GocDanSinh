@@ -31,7 +31,7 @@ async function test(page, inputId, handler){
   location:{pathname:'/'+page+'.html',search:''},
   URLSearchParams,encodeURIComponent,
   alert(){},setTimeout,
-  fetch:async(url)=>{if(url==='/official-reference-catalog.json'){officialFetches++;return {ok:false};}if(url==='/library-catalog.json'){libraryFetches++;return {ok:true,json:async()=>catalog};}
+  fetch:async(url)=>{if(url==='./official-reference-catalog.json'){officialFetches++;return {ok:false};}if(url==='./library-catalog.json'){libraryFetches++;return {ok:true,json:async()=>catalog};}
     calls++;return {ok:true,json:async()=>[]}}};
  vm.runInNewContext(source,sandbox,{filename:'gds-live.js'});
  const isScam=page==='canh-bao-lua-dao';

@@ -4,8 +4,8 @@ const pages=['index','phap-luat-quyen-loi','thu-tuc-hanh-chinh','canh-bao-lua-da
 for(const page of pages){
   const file=path.join(base,'public',page+'.html');
   const s=fs.readFileSync(file,'utf8');
-  if(!s.includes('src="/js/gds-live.js"'))throw Error('Missing JS '+page);
-  if(!s.includes('href="/css/gds-live.css"'))throw Error('Missing CSS '+page);
+  if(!s.includes('src="./js/gds-live.js"'))throw Error('Missing JS '+page);
+  if(!s.includes('href="./css/gds-live.css"'))throw Error('Missing CSS '+page);
   for(const m of s.matchAll(/href="([a-z][^":]*\.html)"/g)) if(!fs.existsSync(path.join(base,'public',m[1]))) throw Error('Broken link '+m[1]);
 }
 for(const f of ['public/js/gds-live.js','public/css/gds-live.css','public/ảnh banner.jpg'])if(!fs.existsSync(path.join(base,f)))throw Error('Missing '+f);

@@ -48,7 +48,7 @@
         try{await api('logout',{});location.reload();}catch(err){alert(err.message);logout.disabled=false;}
       });
       if(user.roles?.some(role=>['author','editor','reviewer','publisher','admin'].includes(role))){
-        const admin=document.createElement('a');admin.href='/admin.html';admin.textContent='Quản trị nội dung';
+        const admin=document.createElement('a');admin.href='./admin.html';admin.textContent='Quản trị nội dung';
         admin.style.margin='0 10px';authLinks.append(admin);
       }
       authLinks.append(label,logout);

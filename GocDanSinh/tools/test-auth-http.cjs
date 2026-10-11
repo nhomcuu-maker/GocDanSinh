@@ -19,11 +19,11 @@ async function test(){
     const response=await fetch(base+path,{redirect:'manual',cache:'no-store'});
     assert.equal(response.status,want,`${path}: HTTP ${response.status}, expected ${want}`);
     const data=await response.text();
-    if(path==='/api/health') {
+    if(path==='./api/health') {
       const parsed=JSON.parse(data);
       assert.equal(parsed.ok,true); assert.equal(parsed.db,'connected');
     }
-    if(path==='/api/content?domain=ADMIN'){
+    if(path==='./api/content?domain=ADMIN'){
       assert.ok(!data.includes('GDS-ADMIN-HOCHIEU-26270'),
         'Passport draft unexpectedly exposed by public content API');
     }

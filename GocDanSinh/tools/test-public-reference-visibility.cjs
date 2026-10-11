@@ -23,7 +23,7 @@ async function inspect(page,code,expected){
  const urls=[];
  const env={document,window:{},location:{pathname:'/'+page+'.html',search:''},
   URLSearchParams,encodeURIComponent,setTimeout,alert(){},
-  fetch:async(url)=>{urls.push(url);return {ok:true,json:async()=>url==='/library-catalog.json'?catalog:[]}}};
+  fetch:async(url)=>{urls.push(url);return {ok:true,json:async()=>url==='./library-catalog.json'?catalog:[]}}};
  vm.runInNewContext(source,env);
  input.value='';await env.window[code==='ADMIN'?'handleProcedureSearch':'handleLegalSearch']();await next();
  assert(panel,'A search panel should be visible');
@@ -32,7 +32,7 @@ async function inspect(page,code,expected){
  assert(pdf.every(x=>/^\/library-files\/[a-zA-Z0-9_-]+\.pdf$/.test(x.href)));
  assert(all.some(x=>String(x.textContent).includes('Ch\u01b0a ki\u1ec3m duy\u1ec7t')));
  assert(urls.includes('/library-catalog.json'));
- assert(urls.some(u=>u==='/api/content?domain='+code));
+ assert(urls.some(u=>u==='./api/content?domain='+code));
 }
 (async()=>{
  await inspect('thu-tuc-hanh-chinh','ADMIN',1);

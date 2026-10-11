@@ -59,7 +59,7 @@ function isOfficialPdfUrl(href){
  // The real government CDN uses /api/download/stream?Url=...&file_name=...pdf.
  // URL path is not a .pdf, but its explicit download filename is.
  return u.hostname.toLowerCase()==='g7.cdnchinhphu.vn' &&
-  u.pathname==='/api/download/stream' &&
+  u.pathname==='./api/download/stream' &&
   /\.pdf$/i.test(u.searchParams.get('file_name')||'');
 }
 function pdfLinksFromHtml(html,base){
