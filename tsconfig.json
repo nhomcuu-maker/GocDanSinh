@@ -14,7 +14,7 @@
     "skipLibCheck": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-    "rootDir": "./src",
+    "rootDir": "./GocDanSinh/src",
     "tsBuildInfoFile": "./dist/tsconfig.tsbuildinfo"
   },
   "exclude": [
@@ -23,3 +23,8 @@
     "tools"
   ]
 }
+
+
+
+
+
