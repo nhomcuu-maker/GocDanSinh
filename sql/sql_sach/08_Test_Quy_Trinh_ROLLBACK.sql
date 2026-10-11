@@ -1,3 +1,8 @@
+/* [BAN SACH] File nay la 06_Kiem_Thu_Xac_Thuc_ROLLBACK.sql cu, GIU NGUYEN noi dung.
+   Test quy trinh soan -> gui duyet -> tra lai -> duyet -> cong bo bang du lieu gia lap,
+   luon ROLLBACK. Can du: 2 tai khoan demo (editor.demo / reviewer.demo @example.invalid)
+   va 1 tai khoan admin that. Neu ban da xoa tai khoan demo thi file nay se dung o buoc kiem tra
+   dau (loi 58701) - khong gay hai. Co the xoa file nay neu khong can test lai. */
 /*
 GOC DAN SINH - NGHIEM THU BUOC 8 BANG DU LIEU GIA LAP (SQL SERVER 2022)
 - CHI DUNG TRONG SSMS TREN DATABASE GocDanSinh. Khong chay song song voi backup/deploy.
