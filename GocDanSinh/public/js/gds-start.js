@@ -108,7 +108,7 @@
   $('quickSearch').addEventListener('submit', e => { e.preventDefault(); void search(); });
   $('province').addEventListener('change', () => {
     const code = $('province').value;
-    $('procedureLink').href="./thu-tuc-hanh-chinh.html' + (code ? '?provinceCode=' + encodeURIComponent(code) : '');
+    $('procedureLink').href = '/thu-tuc-hanh-chinh.html' + (code ? '?provinceCode=' + encodeURIComponent(code) : '');
   });
   void updateCounts(); void fillProvinces();
 })();

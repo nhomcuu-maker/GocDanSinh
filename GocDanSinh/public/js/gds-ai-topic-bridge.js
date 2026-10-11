@@ -18,7 +18,7 @@ const sendMsg=async()=>{
  const user=add(question,'');user.style.cssText='background:#3b82f6;color:white;align-self:flex-end;';input.value='';
  const pending=add('Đang đối chiếu nguồn...','msg-ai');
  try {
-   const res=await fetch('./api/assistant/ask',{method:'POST',cache:'no-store',headers:{'Content-Type':'application/json'},body:JSON.stringify({question,domain})});
+   const res=await fetch('/api/assistant/ask',{method:'POST',cache:'no-store',headers:{'Content-Type':'application/json'},body:JSON.stringify({question,domain})});
    const d=await res.json();if(!res.ok)throw new Error(d.message||('HTTP '+res.status));
    const state=d.status==='AI_GENERATED'?'AI tổng hợp có dẫn nguồn':d.status==='INSUFFICIENT_EVIDENCE'?'CHƯA ĐỦ CĂN CỨ':'CHỈ TRA CỨU (chưa có AI)';
    pending.textContent=state+'\n'+(d.answer?.summary||'Không tìm thấy câu trả lời')+'\n'+(d.answer?.warnings||[]).join(' ');

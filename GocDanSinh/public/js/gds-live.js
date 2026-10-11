@@ -90,8 +90,8 @@
   async function renderReferenceCatalog(domain, search, serial) {
     if (!referencePanel || (domain !== 'LEGAL' && domain !== 'ADMIN')) return;
     if (!referenceCatalogPromise) referenceCatalogPromise = Promise.all([
-      fetch('./library-catalog.json', {cache:'no-store'}).then(r=>r.ok?r.json():null).catch(()=>null),
-      fetch('./official-reference-catalog.json', {cache:'no-store'}).then(r=>r.ok?r.json():null).catch(()=>null)
+      fetch('/library-catalog.json', {cache:'no-store'}).then(r=>r.ok?r.json():null).catch(()=>null),
+      fetch('/official-reference-catalog.json', {cache:'no-store'}).then(r=>r.ok?r.json():null).catch(()=>null)
     ]).then(([local,official])=>({items:[...(local?.items||[]),...(official?.items||[])]}));
     const catalog = await referenceCatalogPromise;
     if (serial !== requestSerial) return;
@@ -196,7 +196,7 @@
       results.append(note);
       if (domain === 'ADMIN' || domain === 'LEGAL') {
         const link = el('a', '', 'Mở Thư viện văn bản tham khảo ↗');
-        link.href="./thu-vien.html';
+        link.href = '/thu-vien.html';
         results.append(link);
       }
       return [];

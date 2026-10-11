@@ -22,7 +22,7 @@
   </style>
 </head>
 <body>
-<header><a href="./">GÓC DÂN SINH</a> &nbsp; / &nbsp; <a href="./kiem-tra-he-thong.html">Kiểm tra hệ thống</a> &nbsp; / &nbsp; <a href="./thu-tuc-hanh-chinh.html">Thủ tục hành chính</a></header>
+<header><a href="/">GÓC DÂN SINH</a> &nbsp; / &nbsp; <a href="/kiem-tra-he-thong.html">Kiểm tra hệ thống</a> &nbsp; / &nbsp; <a href="/thu-tuc-hanh-chinh.html">Thủ tục hành chính</a></header>
 <main>
   <div class="card">
     <span class="pill">BẢN NHÁP – CHỈ ĐỂ KIỂM TRA</span>
@@ -54,7 +54,7 @@
  form.addEventListener('submit',async e=>{
     e.preventDefault();button.disabled=true;result.hidden=true;result.replaceChildren();status.textContent='Đang kiểm tra quyền truy cập và truy vấn database...';
     try{
-       const r=await fetch('./api/dev/procedures/GDS-ADMIN-HOCHIEU-26270',{headers:{'x-dev-api-key':key.value,'Accept':'application/json'},cache:'no-store'});
+       const r=await fetch('/api/dev/procedures/GDS-ADMIN-HOCHIEU-26270',{headers:{'x-dev-api-key':key.value,'Accept':'application/json'},cache:'no-store'});
        // Clear key from DOM as soon as response arrives; never persist or log it.
        key.value='';
        if(!r.ok)throw new Error('HTTP '+r.status+' – '+(r.status===403?'khóa không hợp lệ hoặc không phải môi trường local development':'xem Terminal NestJS để kiểm tra'));

@@ -1,7 +1,7 @@
 (() => {
   'use strict';
   async function api(endpoint, body) {
-    const response = await fetch('./api/auth/'+endpoint,{
+    const response = await fetch('/api/auth/'+endpoint,{
       method:body===undefined?'GET':'POST',
       credentials:'same-origin', cache:'no-store',
       headers:body===undefined?{Accept:'application/json'}:{'Content-Type':'application/json',Accept:'application/json'},

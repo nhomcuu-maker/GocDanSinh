@@ -54,7 +54,7 @@
           const item = document.createElement('article');
           item.className = 'gds-result-item';
           const anchor = document.createElement('a');
-          anchor.href="./api/procedures/' + encodeURIComponent(row.businessCode);
+          anchor.href = '/api/procedures/' + encodeURIComponent(row.businessCode);
           text(anchor, row.title || row.businessCode);
           anchor.addEventListener('click', e => { e.preventDefault(); showDetail(row.businessCode); });
           const desc = document.createElement('p');
